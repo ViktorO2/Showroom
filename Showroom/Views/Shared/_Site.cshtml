@@ -1,0 +1,49 @@
+﻿@using Showroom.Entities;
+@using Showroom.ExtentionMethods;   
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.Get<User>("loggedUser");
+}
+<html>
+<head>
+    <title>@ViewData["home"]</title>
+    <link href="~/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+
+<header class="home">
+<nav class="navbar navbar-expand-lg navbar-light bg-gradient">
+  <a class="navbar-brand title" href="#">AUTO SHOWROOM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/Home/Index">HOME</a>
+      @if(loggedUser !=null){
+                    <a class="nav-item nav-link" href="/Users/Index">USERS</a>
+                    <a class="nav-item nav-link" href="/Cars/Index">CARS</a>
+                    <a class="nav-item nav-link" href="/Home/Logout">LOGOUT</a>
+                }
+                else
+                {
+                     <a class="nav-item nav-link" href="/Home/Login">LOGIN</a>
+                }
+
+  </div>
+  <div class="welcomeMsg align-content-end"> <span>
+      Hello,
+            @(loggedUser == null ? "Annonymous" : loggedUser.Username)</span></div>
+  </div>
+</nav>  
+
+</header>
+ 
+<body class="bg-image" 
+     style="background-image: url('../Photos/Photo1.jpg');
+            height: 100vh;width: auto ">
+
+    <div >
+     @RenderBody()
+</div>
+</body>
+</html>

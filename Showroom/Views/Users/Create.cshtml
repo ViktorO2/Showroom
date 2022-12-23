@@ -1,0 +1,64 @@
+﻿@model Showroom.ViewModels.Users.CreateVM
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "CREATE USERS";
+}
+     
+<section>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create USER</h2>
+
+              <form action="/Users/Create" method="post">
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="username">@Html.LabelFor(m => m.Username)</label>
+                  <input name="Username" type="text" id="username" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.Username)
+                </div>
+
+                <div class="form-outline mb-4">
+                <label class="form-label" for="password">@Html.LabelFor(m => m.Password)</label>
+                <input name="Password" type="password" id="password" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="firstName">@Html.LabelFor(m => m.FirstName)</label>
+                  <input name="FirstName" type="text" id="firstName" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="lastName">@Html.LabelFor(m => m.LastName)</label>
+                  <input name="LastName" type="text" id="lastName" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+                
+                <div class="d-flex justify-content-center">
+                  <input type="submit"
+                    class="btn btn-outline-secondary btn-block btn-lg gradient-custom-4 text-body" value="Save">
+                </div>
+                <a type="submit" href="/Users/Index" class="btn btn-secondary btn-block">Back</a>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

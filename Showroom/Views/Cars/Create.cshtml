@@ -1,0 +1,64 @@
+﻿@model Showroom.ViewModels.Cars.CreateVM
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "CREATE CAR";
+}
+<section>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create AUTO</h2>
+
+              <form action="/Cars/Create" method="post">
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="username">@Html.LabelFor(m => m.CarName)</label>
+                  <input name="CarName" type="text" id="carName" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.CarName)
+                </div>
+
+                <div class="form-outline mb-4">
+                <label class="form-label" for="car">@Html.LabelFor(m => m.CarDescription)</label>
+                <input name="CarDescription" type="text" id="carDescription" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.CarDescription)
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="carPictureURL">@Html.LabelFor(m => m.CarPictureURL)</label>
+                  <input name="CarPictureURL" type="text" id="carPictureURL" class="form-control form-control-lg" />
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.CarPictureURL)
+                </div>
+                 <div class="form-outline mb-4">
+                  <label class="form-label" for="isAvailabel">@Html.LabelFor(m => m.IsAvailable)</label>
+                  <select class="form-control" id="IsAvailable">
+                        <option value="False">No</option>
+                         <option value="True">Yes</option>
+                  </select>
+                </div>
+                <div class="row-cols-sm-3 text-danger">
+                    @Html.ValidationMessageFor(m => m.IsAvailable)
+                </div>
+                <div class="d-flex justify-content-center">
+                  <input type="submit"
+                    class="btn btn-outline-secondary btn-block btn-lg gradient-custom-4 text-body" value="Save">
+                </div>
+                <a type="submit" href="/Users/Index" class="btn btn-secondary btn-block">Back</a>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

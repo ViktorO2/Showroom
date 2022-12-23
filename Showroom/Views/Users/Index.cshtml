@@ -1,0 +1,41 @@
+﻿@model Showroom.ViewModels.Users.IndexVM
+@using Showroom.Entities
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "USERS";
+}
+
+<div class="container align-content-center"  >
+<a type="button" class="btn btn-outline-primary btn-sm" style="margin-top: 10px" href="/Users/Create">Add USER</a>
+<table class="table table-secondary-bordered" >
+    <thead>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Option</th>
+    </thead>
+   
+    <tbody>
+       
+       @foreach(var item in Model.Items)  {
+            <tr>
+                <td>@item.Username</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+              
+                <td>
+              
+                    <a type="submit" 
+                    class="btn btn-outline-primary"
+                    href="/Users/Edit?Id=@item.Id">Edit</a>
+                    <a
+                    type="submit"
+                    class="btn btn-outline-danger"
+                    href="/Users/Delete?Id=@item.Id">Delete</a>
+                </td>
+            </tr>
+     }
+     </tbody>
+    </table>
+</div>
+
