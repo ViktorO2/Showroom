@@ -19,14 +19,27 @@
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/Home/Index">HOME</a>
-      @if(loggedUser !=null){
-                    <a class="nav-item nav-link" href="/Users/Index">USERS</a>
-                    <a class="nav-item nav-link" href="/Cars/Index">CARS</a>
-                    <a class="nav-item nav-link" href="/Home/Logout">LOGOUT</a>
+                @if (loggedUser != null)
+                {
+                    @if (loggedUser.Username == "admin")
+                    {
+                        <a class="nav-item nav-link" href="/Users/Index">Users</a>
+                        <a class="nav-item nav-link" href="/Cars/Index">Cars</a>
+                        <a class="nav-item nav-link" href="/Comments/Create">Comments</a>
+                        <a class="nav-item nav-link" href="/Home/Logout">LOGOUT</a>
+                    }
+                    else{
+                        //TODO  
+                        //myProfile
+                     
+                      <a class="nav-item nav-link" href="/RentCar/RentACar">RentCar</a>
+                      <a class="nav-item nav-link" href="/MyAccount/MyProfile">My Profile</a>
+                      <a class="nav-item nav-link" href="/Home/Logout">LOGOUT</a>
+                        }
                 }
                 else
                 {
-                     <a class="nav-item nav-link" href="/Home/Login">LOGIN</a>
+                    <a class="nav-item nav-link" href="/Home/Login">LOGIN</a>
                 }
 
   </div>

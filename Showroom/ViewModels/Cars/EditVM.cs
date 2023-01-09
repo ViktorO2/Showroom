@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Showroom.Entities;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Showroom.ViewModels.Cars
@@ -22,5 +23,6 @@ namespace Showroom.ViewModels.Cars
         [DisplayName("Is Available: ")]
         [Required(ErrorMessage = "*This field is Required!")]
         public bool IsAvailable { get; set; }
+        
     }
 }

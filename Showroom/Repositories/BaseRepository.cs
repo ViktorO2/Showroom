@@ -50,15 +50,6 @@ namespace Showroom.Repositories
                       .FirstOrDefault();
         }
 
-        public int Count(Expression<Func<T, bool>> filter = null)
-        {
-            IQueryable<T> query = Items;
-
-            if (filter != null)
-                query = query.Where(filter);
-
-            return query.Count();
-        }
 
         public void Save(T item)
         {
@@ -76,5 +67,7 @@ namespace Showroom.Repositories
             Items.Remove(item);
             Context.SaveChanges();
         }
+       
     }
 }
+

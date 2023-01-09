@@ -1,0 +1,49 @@
+﻿@model Showroom.ViewModels.Comments.IndexVM;
+@using Showroom.Entities;
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "COMMENTS";
+}
+
+<section class="container-lg">
+    <a type="button" class="btn btn-outline-primary btn-sm"  href="/Comments/Create">NEW</a>
+
+<div class="album py-5">
+
+    <div class="container">
+        <div class="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
+
+            @foreach (var item in Model.Items)
+            {
+                <div class=" container card" >
+
+               
+                    <div class="card-body">
+
+
+                        <h2>
+                            @item.Name
+                        </h2>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="submit" 
+                    class="btn btn-outline-primary"
+                    href="/Comments/Edit?Id=@item.Id">Edit</a>
+                    <a
+                    type="submit"
+                    class="btn btn-outline-danger"
+                    href="/Comments/Delete?Id=@item.Id">Delete</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</sectio>

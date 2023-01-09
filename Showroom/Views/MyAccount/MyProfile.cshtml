@@ -1,0 +1,33 @@
+﻿@model Showroom.ViewModels.Account.MyAccountVM;
+@using Showroom.Entities;
+@{ 
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "MYACCOUNT";
+}
+<div class="container align-content-center"  >
+    <h1>My Profile</h1>
+
+<table class="table table-secondary-bordered" >
+    <thead>
+        <th>Car ID</th> 
+        <th>Car Name</th>
+        <th>Option</th>
+    </thead>
+   
+    <tbody>
+       
+      @foreach(var item in Model.Items){
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CarName</td>
+                <td>
+                 <a
+                    type="submit"
+                    class="btn btn-outline-danger"
+                    href="/MyAccount/UnRent?Id=@item.Id">UNRENT</a>
+                </td>
+            </tr>
+      }    
+     </tbody>
+    </table>
+</div>

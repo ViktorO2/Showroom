@@ -36,20 +36,10 @@
                 </div>
                 <div class="row-cols-sm-3 text-danger">
                     @Html.ValidationMessageFor(m => m.CarPictureURL)
-                </div>    
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="isAvailable">@Html.LabelFor(m => m.IsAvailable)</label>
-                  <select class="form-control" id="IsAvailable">
-                        <option value="False">No</option>
-                         <option value="True">Yes</option>
-                  </select>
-                </div>
-                <div class="row-cols-sm-3 text-danger">
-                    @Html.ValidationMessageFor(m => m.IsAvailable)
                 </div>
                 <div class="d-flex justify-content-center">
                   <input type="submit"
-                    class="btn btn-outline-secondary btn-block btn-lg gradient-custom-4 text-body" value="Save">
+                    class="btn btn-outline-secondary btn-block btn-lg gradient-custom-4 text-body" value="Save"/>
                 </div>
                 <a type="submit" href="/Cars/Index" class="btn btn-secondary btn-block">Back</a>
 

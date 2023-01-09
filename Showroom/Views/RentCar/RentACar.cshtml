@@ -1,0 +1,54 @@
+﻿@model Showroom.ViewModels.Cars.IndexVM;
+@using Showroom.Entities;
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["home"] = "CARS";
+}
+
+<section class="container-lg">
+   
+<div class="album py-5">
+
+    <div class="container">
+        <div class="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
+
+            @foreach (var item in Model.Items)
+            {
+                <div class=" container card" >
+
+                    <img class="card-img-top" src="@item.CarPictureURL" alt="Card image cap">
+                    <rect width="50%" height="50%" fill="#55595c"></rect>
+
+
+                    <div class="card-body">
+
+
+                        <h2>
+                            @item.CarName
+                        </h2>
+                        <p class="card-text">@item.CarDescription</p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                               
+                    <a
+                    type="submit"
+                    class="btn btn-outline-danger"
+                    href="/RentCar/Rent?Id=@item.Id">Rent</a>
+                    <a
+                    type="submit"
+                    class="btn btn-outline-danger"
+                    href="/Comments/Create?Id=@item.Id">Comment</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</section>
